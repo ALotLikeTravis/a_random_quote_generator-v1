@@ -29,88 +29,29 @@ let quotes =  [
 
 let randomNumber = () => Math.floor(Math.random() * quotes.length);
 
-function getRandomNumber() {
-  let randomNumber = Math.floor(Math.random() * quotes.length);
-  return randomNumber;
-}
-
-
-
-// do {
-//   let repeat = false;
-//   if (randomNumber() === randomIndex) {
-//     // console.log(randomNumber());
-//     // console.log(randomIndex);
-//     repeat = true;
-//     // break;
-//   } else if(repeat === false) {
-//     return randomQuote;
-//   }
-// } while (repeat === true)
 
 /***
  * `getRandomQuote` function
 ***/
 let getRandomQuote = () => {
-//   let repeat = false;
-//   let randomQuote = quotes[getRandomNumber()];
-//   let randomIndex = quotes.indexOf(randomQuote);
-//   if (randomNumber() === randomIndex) {
-//     // console.log(randomNumber());
-//     // console.log(randomIndex);
-//     repeat = true;
-//     //break;
-//   }
-  
-  // let repeat = false;
-  // do {
-  //   let randomQuote = quotes[getRandomNumber()];
-  //   let randomIndex = quotes.indexOf(randomQuote);
-  //   if (randomNumber() === randomIndex) {
-  //     // console.log(randomNumber());
-  //     // console.log(randomIndex);
-  //     repeat = true;
-  //     //break;
-  //   } else if(repeat === false) {
-  //     return randomQuote;
-  //   }
-  // } while (repeat === false)
-  // let repeat = false;
-  // do {
-  //   let randomQuote = quotes[getRandomNumber()];
-  //   let randomIndex = quotes.indexOf(randomQuote);
-  //   if (randomNumber() === randomIndex) {
-  //     // console.log(randomNumber());
-  //     // console.log(randomIndex);
-  //     repeat = true;
-  //     //break;
-  //   } else if(repeat === false) {
-  //     return randomQuote;
-  //   }
-  // } while (repeat === false)
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < quotes.length; i++) {
     let repeat = false;
-    let randomQuote = quotes[getRandomNumber()];
+    let randomQuote = quotes[randomNumber()];
     let randomIndex = quotes.indexOf(randomQuote);
-    if (randomNumber() === randomIndex) {
-      console.log(randomNumber());
+    if (randomQuote.indexOf === randomIndex) {
+      console.log(randomQuote.indexOf);
       console.log(randomIndex);
       repeat = true;
-      break;
+      if (repeat === true) {
+        continue;
+      }
     } else if(repeat === false) {
       console.log(randomNumber());
       console.log(randomIndex);
+      console.log(repeat);
       return randomQuote;
     }
   }
-  // let randomQuote = quotes[getRandomNumber()];
-  // let randomIndex = quotes.indexOf(randomQuote);
-  // console.log(randomIndex);
-  // if (randomNumber() !== randomIndex) {
-  //   console.log(randomNumber());
-  //   console.log(randomIndex);
-  //   return randomQuote;
-  // } 
 };
 
 
