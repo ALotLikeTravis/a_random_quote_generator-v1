@@ -27,33 +27,63 @@ let quotes =  [
 
 ];
 
+let usedQuotes = [];
+let prevRandomNum;
 let randomNumber = () => Math.floor(Math.random() * quotes.length);
-
 
 /***
  * `getRandomQuote` function
 ***/
-let getRandomQuote = () => {
-  for (let i = 0; i < quotes.length; i++) {
-    let repeat = false;
-    let randomQuote = quotes[randomNumber()];
-    let randomIndex = quotes.indexOf(randomQuote);
-    if (randomQuote.indexOf === randomIndex) {
-      console.log(randomQuote.indexOf);
-      console.log(randomIndex);
-      repeat = true;
-      if (repeat === true) {
-        continue;
-      }
-    } else if(repeat === false) {
-      console.log(randomNumber());
-      console.log(randomIndex);
-      console.log(repeat);
-      return randomQuote;
-    }
-  }
-};
+// let getRandomQuote = () => {
+//   for (let i = 0; i < quotes.length; i++) {
+//     let repeat = false;
+//     let randomQuote = quotes[randomNumber()];
+//     let randomIndex = quotes.indexOf(randomQuote);
+//     if (randomQuote.indexOf === randomIndex) {
+//       console.log(randomQuote.indexOf);
+//       console.log(randomIndex);
+//       repeat = true;
+//       if (repeat === true) {
+//         continue;
+//       }
+//     } else if(repeat === false) {
+//       console.log(randomNumber());
+//       console.log(randomIndex);
+//       console.log(repeat);
+//       return randomQuote;
+//     }
+//   }
+// };
+//console.log(quotes)
 
+// let getRandomQuote = () => {
+//   let randomQuote = quotes[randomNumber()];
+//   //let quoteID = quotes.indexOf(randomQuote);
+//   for (let i = 0; i < 10; i++) {
+//     quotes = quotes;
+//     let quoteID = quotes.indexOf(randomQuote);
+//     console.log(quotes);
+//     if(quotes.length == 0)  {
+//       quotes += usedQuotes.push();
+//     } else if (quotes.length !== 0) {
+//       usedQuotes = quotes.splice(quoteID, quotes.length );
+//       return randomQuote;
+//     }
+//   } 
+// }
+
+function getRandomQuote() {
+  let randomQuote = quotes[randomNumber()];
+  let quoteID = quotes.indexOf(randomQuote);
+  console.log(quoteID);
+  if (quoteID !== prevRandomNum)  {
+    prevRandomNum = quoteID;
+    return randomQuote;
+  } else {
+    console.log(`You're failing, Travis. Please do better.`);  
+    getRandomQuote();
+  }
+}
 
 /***
  * `printQuote` function
