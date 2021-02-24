@@ -23,6 +23,12 @@ let quotes =  [
     
     source:"David Goggins, Can't Hurt Me",
 
+  },
+
+  {
+    quote: `People don’t buy what you do; they buy why you do it. And what you do simply proves what you believe.`,
+
+    source: `Simon Sinek`
   }
 
 ];
@@ -75,12 +81,11 @@ let randomNumber = () => Math.floor(Math.random() * quotes.length);
 function getRandomQuote() {
   let randomQuote = quotes[randomNumber()];
   let quoteID = quotes.indexOf(randomQuote);
-  console.log(quoteID);
+  console.log(randomQuote);
   if (quoteID !== prevRandomNum)  {
     prevRandomNum = quoteID;
     return randomQuote;
   } else {
-    console.log(`You're failing, Travis. Please do better.`);  
     getRandomQuote();
   }
 }
@@ -90,6 +95,9 @@ function getRandomQuote() {
 ***/
 let printQuote = () => {
   document.getElementById('quote').innerHTML = getRandomQuote().quote;
+  // console.log(getRandomQuote());
+  // console.log(getRandomQuote().quote);
+  // console.log(prevRandomNum);
 };
 
 
