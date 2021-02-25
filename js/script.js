@@ -86,7 +86,7 @@ function getRandomQuote() {
     prevRandomNum = quoteID;
     return randomQuote;
   } else {
-    getRandomQuote();
+    return getRandomQuote();
   }
 }
 
