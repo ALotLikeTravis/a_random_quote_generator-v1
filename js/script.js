@@ -16,6 +16,8 @@ let quotes =  [
     
     source:"Jocko Willink",
 
+    date:""
+
   },
 
   {
@@ -23,81 +25,52 @@ let quotes =  [
     
     source:"David Goggins, Can't Hurt Me",
 
+    date:""
+
   },
 
   {
     quote: `People don’t buy what you do; they buy why you do it. And what you do simply proves what you believe.`,
 
-    source: `Simon Sinek`
+    source: `Simon Sinek`,
+
+    date:""
   }
 
 ];
 
 let usedQuotes = [];
 let prevRandomNum;
-let randomNumber = () => Math.floor(Math.random() * quotes.length);
+let randomNumber = (highNum) => Math.floor(Math.random() * highNum);
+
 
 /***
  * `getRandomQuote` function
 ***/
-// let getRandomQuote = () => {
-//   for (let i = 0; i < quotes.length; i++) {
-//     let repeat = false;
-//     let randomQuote = quotes[randomNumber()];
-//     let randomIndex = quotes.indexOf(randomQuote);
-//     if (randomQuote.indexOf === randomIndex) {
-//       console.log(randomQuote.indexOf);
-//       console.log(randomIndex);
-//       repeat = true;
-//       if (repeat === true) {
-//         continue;
-//       }
-//     } else if(repeat === false) {
-//       console.log(randomNumber());
-//       console.log(randomIndex);
-//       console.log(repeat);
-//       return randomQuote;
-//     }
-//   }
-// };
-//console.log(quotes)
-
-// let getRandomQuote = () => {
-//   let randomQuote = quotes[randomNumber()];
-//   //let quoteID = quotes.indexOf(randomQuote);
-//   for (let i = 0; i < 10; i++) {
-//     quotes = quotes;
-//     let quoteID = quotes.indexOf(randomQuote);
-//     console.log(quotes);
-//     if(quotes.length == 0)  {
-//       quotes += usedQuotes.push();
-//     } else if (quotes.length !== 0) {
-//       usedQuotes = quotes.splice(quoteID, quotes.length );
-//       return randomQuote;
-//     }
-//   } 
-// }
 
 function getRandomQuote() {
-  let randomQuote = quotes[randomNumber()];
+  let randomQuote = quotes[randomNumber(quotes.length)];
   let quoteID = quotes.indexOf(randomQuote);
-  console.log(randomQuote);
   if (quoteID !== prevRandomNum)  {
     prevRandomNum = quoteID;
+    document.getElementById('source').innerHTML = randomQuote.source;
     return randomQuote;
   } else {
     return getRandomQuote();
   }
 }
 
+function changeBackgroundColor()  {
+  document.getElementById('body').style.backgroundColor = `rgba(${randomNumber(255)},${randomNumber(255)},${randomNumber(255)}, 0.3)`
+
+}
+
 /***
  * `printQuote` function
 ***/
 let printQuote = () => {
+  changeBackgroundColor();
   document.getElementById('quote').innerHTML = getRandomQuote().quote;
-  // console.log(getRandomQuote());
-  // console.log(getRandomQuote().quote);
-  // console.log(prevRandomNum);
 };
 
 
